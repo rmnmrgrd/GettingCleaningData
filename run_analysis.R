@@ -63,6 +63,6 @@ tidy_dataset <- gather(tidy_dataset, key="measure", value="value", -(1:2))
 
 # Transformation 12: Average values for all measures per activity and subject is calculated and stored in 
 # tidy_dataset_avg.
-tidy_dataset_avg <- summarise(group_by(tidy_dataset, activity, subject), avg=mean(value))
+tidy_dataset_avg <- summarise(group_by(tidy_dataset, activity, subject, measure), avg=mean(value))
 
 write.table(tidy_dataset_avg, file="output.txt", row.name=FALSE)
